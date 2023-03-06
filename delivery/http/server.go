@@ -25,7 +25,6 @@ func NewHttpServer(port int, usecase domain.TokenoUseCase) {
 
 func (s *httpServer) handleRequest(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	fmt.Println(query)
 	if !isValidInput(query) {
 		ReturnBadRequest(w, domain.FailedResponse{
 			Message: fmt.Sprintf("Invalid or Empty ID : %v", query["id"]),
